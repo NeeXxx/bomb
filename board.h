@@ -42,6 +42,8 @@ private:
     void countMapForDraw();
     substance mapForDraw[10][10];
 
+    bool inMap(int x,int y);
+
 protected:
     void paintEvent(QPaintEvent* event) Q_DECL_OVERRIDE;
     void keyPressEvent(QKeyEvent* event) Q_DECL_OVERRIDE;

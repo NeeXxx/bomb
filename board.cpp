@@ -128,8 +128,11 @@ void board::countMapForDraw()
         }
 }
 
-map<underSubstance,string> uM;
-map<aboveSubstance,string> aM;
+
+bool board::inMap(int x,int y)
+{
+    return x>=1 && x<=9 && y>=1 && y<=9;
+}
 
 void board::paintEvent(QPaintEvent*)
 {
@@ -219,7 +222,7 @@ void board::timerEvent(QTimerEvent* event)
     {
         cnt++;
         qDebug()<<"naive"<<cnt<<endl;
-        update();
+        repaint();
         while(!bombQueue.empty() && bombQueue.front().canExplode(cnt))
         {
             bombQueue.front().explode();
