@@ -7,7 +7,8 @@ class myMap
 {
     block content[10][10];
     void intToBlock();
-    int mapForinit[10][10];
+    int underMapForinit[10][10];
+    int aboveMapForinit[10][10];
 public:
     myMap();
     block& blockAt(int x,int y) { return content[x][y]; }

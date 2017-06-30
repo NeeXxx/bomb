@@ -72,7 +72,7 @@ class block
     under u;
     above a;
     above middle; //用来表示人和炸弹在同一块的情况
-    friend void myMap::intToBlock();
+    //friend void myMap::intToBlock();
 public:
     block(under tu,above ta):u(tu),a(ta),middle(aAir) {}
     block(under tu):u(tu),a(aAir),middle(aAir) {}
