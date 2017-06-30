@@ -5,6 +5,7 @@ enum underSubstance{water,house,ground,tree,bridge};//枚举的顺序和数组�
 enum aboveSubstance{sBomb,arrowUp,arrowDown,arrowLeft,arrowRight,
                     player1,player2,
                     wood,air};
+enum texture{t_nothing,t_tree,t_house,t_player1,t_player2,t_wood,t_bomb,t_flame};
 
 //希望底部的东西是不可改变的
 class under
