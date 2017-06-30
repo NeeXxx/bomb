@@ -1,7 +1,7 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 
-enum underSubstance{water,ground,bridge,house,tree};
+enum underSubstance{water,house,ground,tree,bridge};//枚举的顺序和数组的顺序关联，因而会影响初始化
 enum aboveSubstance{sBomb,arrowUp,arrowDown,arrowLeft,arrowRight,
                     player1,player2,
                     wood,air};
@@ -23,6 +23,8 @@ const under uWater(water,false),
             uGround(ground,true),
             uTree(tree,true),
             uBridge(bridge,true);//可进入
+
+const under uArray[5]={uWater,uHouse,uGround,uTree,uBridge};
 
 class above
 {
@@ -66,17 +68,23 @@ class block
     under u;
     above a;
     above middle; //用来表示人和炸弹在同一块的情况
+    friend void myMap::intToBlock();
 public:
     block(under tu,above ta):u(tu),a(ta),middle(aAir) {}
+    block(under tu):u(tu),a(aAir),middle(aAir) {}
     block():u(uWater),a(aAir),middle(aAir) {}
+
     void destroyAbove();
     void addAbove(above ta);
     above getAbove() { return a; }
+
     bool inable();
     bool pushable();
     bool hidable();
     bool haveAbove();
+
     substance appearance(); //画图必须调用appearance
+
     bool haveBomb() { return middle==aBomb; }
     void addBomb() { middle=aBomb; }
     void removeMiddle() { middle=aAir; }

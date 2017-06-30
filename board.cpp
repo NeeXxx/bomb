@@ -127,6 +127,10 @@ void board::countMapForDraw()
         }
 }
 
+bool board::inMap(int x,int y)
+{
+    return x>=1 && x<=9 && y>=1 && y<=9;
+}
 
 void board::paintEvent(QPaintEvent*)
 {
