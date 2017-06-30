@@ -54,6 +54,10 @@ const above aBomb(sBomb,false,false),//不可推
             aPlayer2(player1,true,false),
             aAir(air,true,false);               //可进入
 
+const above aArray[9]={aBomb,aArrowUp,aArrowDown,aArrowLeft,aArrowRight,
+                    aPlayer1,aPlayer2,
+                    aWood,aAir};
+
 class substance
 {
 public:

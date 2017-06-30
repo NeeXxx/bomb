@@ -317,7 +317,7 @@ void board::timerEvent(QTimerEvent* event)
     {
         cnt++;
         qDebug()<<"naive"<<cnt<<endl;
-        update();
+        repaint();
         while(!bombQueue.empty() && bombQueue.front().canExplode(cnt))
         {
             bombQueue.front().explode();
