@@ -134,140 +134,43 @@ bool board::inMap(int x,int y)
 
 void board::paintEvent(QPaintEvent*)
 {
-    qDebug()<<"angry"<<endl;
+    //绘制地图底板
     QPainter painter(this);
     painter.translate(20,100);
-    QPixmap pground(50,50);//added
-    bool flag=pground.load(":/image/images/ground.png");
-    qDebug()<<flag<<endl;
-    painter.drawPixmap(0,0,900,900,pground);
+    QPixmap ground;
+    ground.load(":/image/images/ground.png");
+    painter.drawPixmap(0,0,900,900,ground);
+    //绘制前的定义
+    aM[player1]="player1.png";
+    aM[player2]="player2.png";
+    aM[wood]="wood.png";
+    aM[bomb]="bomb.png";
+    aM[arrowDown]=aM[arrowLeft]=aM[arrowRight]=aM[arrowUp]="flame.png";
+    uM[house]="hosue.png";
+    uM[tree]="tree.png";
+    uM[water]=uM[ground]=uM[bridge]="blank.png";
+    string name, full_name;
+    //绘制每格元素
     countMapForDraw();
+    QPixmap pix;
     for (int i=1;i<10;i++)
     {
         for (int j=1;j<10;j++)
         {
-            //qDebug()<<i<<" "<<j<<endl;
             substance judge=mapForDraw[i][j];
-            texture image;
-            if (judge.us==tree&&judge.us==water&&judge.us==house)
+            if (judge.as!=air)
             {
-                underSubstance tmp=judge.us;
-                switch(tmp)
-                {
-                case tree:
-                {
-                    image=t_tree;
-                    break;
-                }
-                case water:
-                {
-                    image=t_nothing;
-                    break;
-                }
-                case house:
-                    image=t_house;
-                    break;
-                case ground:
-                    QPixmap pix(50,50);
-                    pix.load(":/image/images/player1.png");
-                    painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                    break;
-                }
+                name=aM[judge.as];
             }
             else
             {
-                aboveSubstance tmp=judge.as;
-                switch(tmp)
-                {
-                case sBomb:
-                {
-                    image=t_bomb;
-                }
-                case arrowDown:
-                case arrowLeft:
-                case arrowRight:
-                case arrowUp:
-                {
-                    image=t_flame;
-                }
-                case player1:
-                {
-                    image=t_player1;
-                }
-                case player2:
-                {
-                    image=t_player2;
-                }
-                case wood:
-                {
-                    image=t_wood;
-                }
-                case air:
-                {
-                    image=t_nothing;
-                }
-                }
+                name=uM[judge.us];
             }
-            switch(image)
-            {
-            case t_player1:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/player1.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_player2:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/player2.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_tree:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/tree.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_wood:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/wood.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_bomb:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/bomb.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_house:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/house.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_flame:
-            {
-                QPixmap pix(50,50);
-                pix.load(":/image/images/flame.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
-            case t_nothing:
-                QPixmap pix(50,50);
-                pix.load(":/image/images/flame.png");
-                painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
-                break;
-            }
+            full_name=":/image/images/"+name;
+            pix.load(full_name);
+            painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
         }
     }
-    qDebug()<<"be"<<endl;
 }
 
 void board::keyPressEvent(QKeyEvent* event)
