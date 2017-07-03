@@ -3,8 +3,11 @@
 #include <QImage>
 #include <QPixmap>
 #include <QDebug>
+#include <map>
+#include <string>
+using namespace  std;
 
-board::board(QWidget* parent):p1(),p2(),QFrame(parent)
+board::board(QWidget* parent):QFrame(parent),p1(),p2()
 {
     //merge
     //qDebug()<<"angry"<<endl;
@@ -137,19 +140,21 @@ void board::paintEvent(QPaintEvent*)
     //绘制地图底板
     QPainter painter(this);
     painter.translate(20,100);
-    QPixmap ground;
-    ground.load(":/image/images/ground.png");
-    painter.drawPixmap(0,0,900,900,ground);
+    QPixmap tground;
+    tground.load(":/image/images/ground.png");
+    painter.drawPixmap(0,0,900,900,tground);
     //绘制前的定义
+    std::map<aboveSubstance,QString> aM;
+    std::map<underSubstance,QString> uM;
     aM[player1]="player1.png";
     aM[player2]="player2.png";
     aM[wood]="wood.png";
-    aM[bomb]="bomb.png";
+    aM[sBomb]="bomb.png";
     aM[arrowDown]=aM[arrowLeft]=aM[arrowRight]=aM[arrowUp]="flame.png";
     uM[house]="hosue.png";
     uM[tree]="tree.png";
     uM[water]=uM[ground]=uM[bridge]="blank.png";
-    string name, full_name;
+    QString name, full_name;
     //绘制每格元素
     countMapForDraw();
     QPixmap pix;
