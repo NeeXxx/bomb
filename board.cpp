@@ -15,6 +15,7 @@ board::board(QWidget* parent):QFrame(parent),p1(),p2()
     setFocusPolicy(Qt::StrongFocus);
     cnt=0;
     timer.start(100,this);
+    resize(1000,1000);
 }
 
 void board::setBomb(player p)
@@ -135,11 +136,13 @@ bool board::inMap(int x,int y)
     return x>=1 && x<=9 && y>=1 && y<=9;
 }
 
+/*
 void board::paintEvent(QPaintEvent*)
 {
+    qDebug()<<"angry!"<<endl;
     //绘制地图底板
     QPainter painter(this);
-    painter.translate(20,100);
+    //painter.translate(20,100);
     QPixmap tground;
     tground.load(":/image/images/ground.png");
     painter.drawPixmap(0,0,900,900,tground);
@@ -177,6 +180,7 @@ void board::paintEvent(QPaintEvent*)
         }
     }
 }
+//*/
 
 void board::keyPressEvent(QKeyEvent* event)
 {
@@ -224,8 +228,8 @@ void board::timerEvent(QTimerEvent* event)
     if(event->timerId()==timer.timerId())
     {
         cnt++;
-        qDebug()<<"naive"<<cnt<<endl;
-        repaint();
+        //qDebug()<<"naive"<<cnt<<endl;
+        //repaint();
         while(!bombQueue.empty() && bombQueue.front().canExplode(cnt))
         {
             bombQueue.front().explode();

@@ -23,6 +23,9 @@ public:
 
     void setBomb(player);
 
+    void countMapForDraw();
+    substance mapForDraw[10][10];
+
 private:
     player p1,p2;
     myMap m;
@@ -39,13 +42,10 @@ private:
 
     void explode(class bomb);
 
-    void countMapForDraw();
-    substance mapForDraw[10][10];
-
     bool inMap(int x,int y);
 
 protected:
-    void paintEvent(QPaintEvent* event) Q_DECL_OVERRIDE;
+    //void paintEvent(QPaintEvent* event) Q_DECL_OVERRIDE;
     void keyPressEvent(QKeyEvent* event) Q_DECL_OVERRIDE;
     void timerEvent(QTimerEvent* event) Q_DECL_OVERRIDE;
 };

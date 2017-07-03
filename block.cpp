@@ -10,6 +10,11 @@ void block::addAbove(above ta)
     a=ta;
 }
 
+void block::setUnder(under tu)
+{
+    u=tu;
+}
+
 bool block::inable()
 {
     return u.inable() && a.inable();

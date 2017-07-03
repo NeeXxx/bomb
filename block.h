@@ -81,6 +81,8 @@ public:
     void addAbove(above ta);
     above getAbove() { return a; }
 
+    void setUnder(under tu);
+
     bool inable();
     bool pushable();
     bool hidable();
