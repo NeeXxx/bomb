@@ -38,9 +38,9 @@ void MainWindow::paintEvent(QPaintEvent *)
     aM[player2]="player2.png";
     aM[wood]="wood.png";
     aM[sBomb]="bomb.png";
-    aM[bubble]="bubble.gif";
-    aM[shoe]="shoe.gif";
-    aM[drug]="drug.gif";
+    aM[bubble]="bubble.png";
+    aM[shoe]="shoe.png";
+    aM[drug]="drug.png";
     aM[arrowDown]=aM[arrowLeft]=aM[arrowRight]=aM[arrowUp]="flame.png";
     uM[house]="house.png";
     uM[tree]="tree.png";
