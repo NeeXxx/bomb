@@ -51,7 +51,7 @@ const above aBomb(sBomb,false,false),//不可推
             aArrowLeft(arrowLeft,true,false),
             aArrowRight(arrowRight,true,false),
             aPlayer1(player1,true,false),
-            aPlayer2(player1,true,false),
+            aPlayer2(player2,true,false),
             aAir(air,true,false),
             aBubble(bubble,true,false),
             aShoe(shoe,true,false),
