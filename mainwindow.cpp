@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::paintEvent(QPaintEvent *)
 {
-    qDebug()<<"angry!"<<endl;
+    //qDebug()<<"angry!"<<endl;
     //绘制地图底板
     QPainter painter(this);
     painter.translate(20,100);

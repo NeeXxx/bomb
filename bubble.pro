@@ -38,7 +38,8 @@ HEADERS += \
     bomb.h \
     board.h \
     block.h \
-    myMap.h
+    myMap.h \
+    substances.h
 
 FORMS += \
         mainwindow.ui
