@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QHBoxLayout *layout=new QHBoxLayout;
     layout->addWidget(&b);
-    resize(1000,1000);
+    resize(1200,900);
 }
 
 MainWindow::~MainWindow()
@@ -22,10 +22,10 @@ void MainWindow::paintEvent(QPaintEvent *)
     qDebug()<<"angry!"<<endl;
     //绘制地图底板
     QPainter painter(this);
-    //painter.translate(20,100);
+    painter.translate(20,100);
     QPixmap tground;
     tground.load(":/image/images/ground.png");
-    painter.drawPixmap(0,0,900,900,tground);
+    painter.drawPixmap(0,0,720,720,tground);
     //绘制前的定义
     std::map<aboveSubstance,QString> aM;
     std::map<underSubstance,QString> uM;
@@ -56,8 +56,7 @@ void MainWindow::paintEvent(QPaintEvent *)
             }
             full_name=":/image/images/"+name;
             pix.load(full_name);
-            painter.drawPixmap(100*i-100,100*j-120,100,120,pix);
+            painter.drawPixmap(80*i-80,80*j-96,80,96,pix);
         }
     }
 }
-//*/
