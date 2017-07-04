@@ -226,6 +226,7 @@ DIST          = ../../../Qt/5.9/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.9/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.9/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.9/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.9/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.9/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.9/clang_64/mkspecs/features/toolchain.prf \
@@ -257,7 +258,8 @@ DIST          = ../../../Qt/5.9/clang_64/mkspecs/features/spec_pre.prf \
 		bomb.h \
 		board.h \
 		block.h \
-		myMap.h main.cpp \
+		myMap.h \
+		substances.h main.cpp \
 		mainwindow.cpp \
 		player.cpp \
 		bomb.cpp \
@@ -439,6 +441,7 @@ Makefile: bubble.pro ../../../Qt/5.9/clang_64/mkspecs/macx-clang/qmake.conf ../.
 		../../../Qt/5.9/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.9/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.9/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.9/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.9/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.9/clang_64/mkspecs/features/toolchain.prf \
@@ -629,6 +632,7 @@ Makefile: bubble.pro ../../../Qt/5.9/clang_64/mkspecs/macx-clang/qmake.conf ../.
 ../../../Qt/5.9/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.9/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.9/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.9/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.9/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/5.9/clang_64/mkspecs/features/toolchain.prf:
@@ -691,7 +695,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents res.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.9/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h player.h bomb.h board.h block.h myMap.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h player.h bomb.h board.h block.h myMap.h substances.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp player.cpp bomb.cpp board.cpp block.cpp myMap.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
@@ -703,6 +707,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r bubble.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -750,6 +755,7 @@ moc_mainwindow.cpp: ../../../Qt/5.9/clang_64/lib/QtWidgets.framework/Headers/QMa
 		board.h \
 		myMap.h \
 		block.h \
+		substances.h \
 		player.h \
 		bomb.h \
 		../../../Qt/5.9/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
@@ -917,6 +923,7 @@ main.o: main.cpp mainwindow.h \
 		board.h \
 		myMap.h \
 		block.h \
+		substances.h \
 		player.h \
 		bomb.h \
 		../../../Qt/5.9/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
@@ -1061,6 +1068,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		board.h \
 		myMap.h \
 		block.h \
+		substances.h \
 		player.h \
 		bomb.h \
 		../../../Qt/5.9/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
@@ -1208,6 +1216,7 @@ bomb.o: bomb.cpp bomb.h
 board.o: board.cpp board.h \
 		myMap.h \
 		block.h \
+		substances.h \
 		player.h \
 		bomb.h \
 		../../../Qt/5.9/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
@@ -1354,11 +1363,13 @@ board.o: board.cpp board.h \
 		../../../Qt/5.9/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o board.o board.cpp
 
-block.o: block.cpp block.h
+block.o: block.cpp block.h \
+		substances.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o block.o block.cpp
 
 myMap.o: myMap.cpp myMap.h \
-		block.h
+		block.h \
+		substances.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o myMap.o myMap.cpp
 
 qrc_res.o: qrc_res.cpp 
