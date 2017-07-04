@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *layout=new QHBoxLayout;
     layout->addWidget(&b);
     resize(1200,900);
+    timer.start(100,this);
 }
 
 MainWindow::~MainWindow()
@@ -16,6 +17,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::keyPressEvent(QKeyEvent* event)
+{
+    b.keyPressEvent(event);
+}
 
 void MainWindow::paintEvent(QPaintEvent *)
 {
@@ -59,4 +64,10 @@ void MainWindow::paintEvent(QPaintEvent *)
             painter.drawPixmap(80*i-80,80*j-96,80,96,pix);
         }
     }
+}
+
+void MainWindow::timerEvent(QTimerEvent *event)
+{
+    if(event->timerId()==timer.timerId())
+        update();
 }

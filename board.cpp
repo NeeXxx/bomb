@@ -7,7 +7,7 @@
 #include <string>
 using namespace  std;
 
-board::board(QWidget* parent):QFrame(parent),p1(),p2()
+board::board(QWidget* parent):QFrame(parent),p1(1,1),p2(9,9)
 {
     //merge
     //qDebug()<<"angry"<<endl;
@@ -184,6 +184,7 @@ void board::paintEvent(QPaintEvent*)
 
 void board::keyPressEvent(QKeyEvent* event)
 {
+    bool flag;
     switch(event->key())
     {
     //p1:
@@ -205,16 +206,20 @@ void board::keyPressEvent(QKeyEvent* event)
 
     //p2:
     case Qt::Key_Up:
-        tryMoveUp(p2);
+        flag=tryMoveUp(p2);
+        qDebug()<<flag<<endl;
         break;
     case Qt::Key_Down:
-        tryMoveDown(p2);
+        flag=tryMoveDown(p2);
+        qDebug()<<flag<<endl;
         break;
     case Qt::Key_Left:
-        tryMoveLeft(p2);
+        flag=tryMoveLeft(p2);
+        qDebug()<<flag<<endl;
         break;
     case Qt::Key_Right:
-        tryMoveRight(p2);
+        flag=tryMoveRight(p2);
+        qDebug()<<flag<<endl;
         break;
     case Qt::Key_Shift:
         setBomb(p2);

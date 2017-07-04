@@ -16,6 +16,7 @@ class board:public QFrame
 {
 public:
     board(QWidget* parent=0);
+
     bool tryMoveUp(player&);
     bool tryMoveDown(player&);
     bool tryMoveLeft(player&);
@@ -25,6 +26,8 @@ public:
 
     void countMapForDraw();
     substance mapForDraw[10][10];
+
+    void keyPressEvent(QKeyEvent* event) Q_DECL_OVERRIDE;
 
 private:
     player p1,p2;
@@ -46,7 +49,6 @@ private:
 
 protected:
     //void paintEvent(QPaintEvent* event) Q_DECL_OVERRIDE;
-    void keyPressEvent(QKeyEvent* event) Q_DECL_OVERRIDE;
     void timerEvent(QTimerEvent* event) Q_DECL_OVERRIDE;
 };
 
