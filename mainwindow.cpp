@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QHBoxLayout *layout=new QHBoxLayout;
-    layout->addWidget(&b);
+    //QHBoxLayout *layout=new QHBoxLayout;
+    //layout->addWidget(&b);
     resize(1200,900);
     timer.start(100,this);
 }

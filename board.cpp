@@ -9,13 +9,9 @@ using namespace  std;
 
 board::board(QWidget* parent):QFrame(parent),p1(1,1),p2(3,8)
 {
-    //merge
-    //qDebug()<<"angry"<<endl;
-    setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    setFocusPolicy(Qt::StrongFocus);
     cnt=0;
     timer.start(100,this);
-    resize(1000,1000);
+
     initPlayer1();
     initPlayer2();
     qDebug()<<p2.getX()<<" "<<p2.getY()<<endl;
