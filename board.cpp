@@ -63,15 +63,21 @@ bool board::tryMoveRight(player& p)
     return flag;
 }
 
+#define ANGRY(x) qDebug()<<#x"angry!"<<endl;
+
 bool board::tryMove(int x1,int y1,int x2,int y2) //from 1 to 2
 {
     block& target=m.blockAt(x2,y2);
     if(target.inable())
     {
+        ANGRY(1)
         if(target.hidable())
             return tryInToHide(x1,y1,x2,y2);
         else
+        {
+            ANGRY(2)
             return trySimpleMove(x1,y1,x2,y2);
+        }
     }
     else
     {
