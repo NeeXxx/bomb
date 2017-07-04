@@ -33,8 +33,11 @@ void MainWindow::paintEvent(QPaintEvent *)
     aM[player2]="player2.png";
     aM[wood]="wood.png";
     aM[sBomb]="bomb.png";
+    aM[bubble]="bubble.gif";
+    aM[shoe]="shoe.gif";
+    aM[drug]="drug.gif";
     aM[arrowDown]=aM[arrowLeft]=aM[arrowRight]=aM[arrowUp]="flame.png";
-    uM[house]="hosue.png";
+    uM[house]="house.png";
     uM[tree]="tree.png";
     uM[water]=uM[ground]=uM[bridge]="blank.png";
     QString name, full_name;

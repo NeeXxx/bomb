@@ -4,7 +4,8 @@
 enum underSubstance{water,house,ground,tree,bridge};//枚举的顺序和数组的顺序关联，因而会影响初始化
 enum aboveSubstance{sBomb,arrowUp,arrowDown,arrowLeft,arrowRight,
                     player1,player2,
-                    wood,air};
+                    wood,air,
+                    bubble,shoe,drug};
 
 //希望底部的东西是不可改变的
 class under
@@ -51,11 +52,15 @@ const above aBomb(sBomb,false,false),//不可推
             aArrowRight(arrowRight,true,false),
             aPlayer1(player1,true,false),
             aPlayer2(player1,true,false),
-            aAir(air,true,false);               //可进入
+            aAir(air,true,false),
+            aBubble(bubble,true,false),
+            aShoe(shoe,true,false),
+            aDrug(drug,true,false);//可进入
 
-const above aArray[9]={aBomb,aArrowUp,aArrowDown,aArrowLeft,aArrowRight,
+const above aArray[12]={aBomb,aArrowUp,aArrowDown,aArrowLeft,aArrowRight,
                     aPlayer1,aPlayer2,
-                    aWood,aAir};
+                    aWood,aAir,
+                    aBubble,aShoe,aDrug};
 
 class substance
 {
