@@ -19,9 +19,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QBasicTimer timer;
 
 protected:
     void paintEvent(QPaintEvent*);
+    void keyPressEvent(QKeyEvent*);
+    void timerEvent(QTimerEvent *event);
 };
 
 #endif // MAINWINDOW_H

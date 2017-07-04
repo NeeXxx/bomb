@@ -6,6 +6,7 @@ class player
 {
 public:
     player();
+    player(int,int);
 
     int getSpeed() const { return speed; }
     void setSpeed(int t) { speed=t; }
