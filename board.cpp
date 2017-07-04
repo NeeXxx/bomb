@@ -7,7 +7,7 @@
 #include <string>
 using namespace  std;
 
-board::board(QWidget* parent):QFrame(parent),p1(1,1),p2(9,9)
+board::board(QWidget* parent):QFrame(parent),p1(1,1),p2(9,8)
 {
     //merge
     //qDebug()<<"angry"<<endl;
@@ -16,6 +16,20 @@ board::board(QWidget* parent):QFrame(parent),p1(1,1),p2(9,9)
     cnt=0;
     timer.start(100,this);
     resize(1000,1000);
+    initPlayer1();
+    initPlayer2();
+}
+
+void board::initPlayer1()
+{
+    int x=p1.getX(),y=p1.getY();
+    m.blockAt(x,y).addAbove(aPlayer1);
+}
+
+void board::initPlayer2()
+{
+    int x=p2.getX(),y=p2.getY();
+    m.blockAt(x,y).addAbove(aPlayer2);
 }
 
 void board::setBomb(player p)
@@ -34,32 +48,32 @@ void board::explode(bomb b)
 bool board::tryMoveUp(player& p)
 {
     int x=p.getX(),y=p.getY();
-    bool flag=tryMove(x,y,x,y-1);
-    if(flag) p.move(0,-1);
+    bool flag=tryMove(x,y,x-1,y);
+    if(flag) p.move(-1,0);
     return flag;
 }
 
 bool board::tryMoveDown(player& p)
 {
     int x=p.getX(),y=p.getY();
-    bool flag=tryMove(x,y,x,y+1);
-    if(flag) p.move(0,1);
+    bool flag=tryMove(x,y,x+1,y);
+    if(flag) p.move(1,0);
     return flag;
 }
 
 bool board::tryMoveLeft(player& p)
 {
     int x=p.getX(),y=p.getY();
-    bool flag=tryMove(x,y,x-1,y);
-    if(flag) p.move(-1,0);
+    bool flag=tryMove(x,y,x,y-1);
+    if(flag) p.move(0,-1);
     return flag;
 }
 
 bool board::tryMoveRight(player& p)
 {
     int x=p.getX(),y=p.getY();
-    bool flag=tryMove(x,y,x+1,y);
-    if(flag) p.move(1,0);
+    bool flag=tryMove(x,y,x,y+1);
+    if(flag) p.move(0,1);
     return flag;
 }
 
