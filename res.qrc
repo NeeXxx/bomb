@@ -13,5 +13,8 @@
         <file>images/player2.png</file>
         <file>images/tree.png</file>
         <file>images/wood.png</file>
+        <file>images/bubble.gif.png</file>
+        <file>images/drug.png</file>
+        <file>images/shoe.png</file>
     </qresource>
 </RCC>
