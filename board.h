@@ -47,6 +47,9 @@ private:
 
     bool inMap(int x,int y);
 
+    void initPlayer1();
+    void initPlayer2();
+
 protected:
     //void paintEvent(QPaintEvent* event) Q_DECL_OVERRIDE;
     void timerEvent(QTimerEvent* event) Q_DECL_OVERRIDE;
