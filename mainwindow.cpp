@@ -49,11 +49,11 @@ void MainWindow::paintEvent(QPaintEvent *)
     //绘制每格元素
     b.countMapForDraw();
     QPixmap pix;
-    for (int j=1;j<10;j++)
+    for (int i=1;i<10;i++)
     {
-        for (int i=1;i<10;i++)
+        for (int j=1;j<10;j++)
         {
-            substance judge=b.mapForDraw[i][j];
+            substance judge=b.mapForDraw[j][i];
             if (judge.as!=air)
             {
                 name=aM[judge.as];
