@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <QDebug>
+
 
 class player
 {
@@ -15,7 +17,7 @@ public:
     int getX() { return x; }
     int getY() { return y; }
 
-    void move(int dx,int dy) { x+=dx; y+=dy; }
+    void move(int dx,int dy) { qDebug()<<"alarm!"<<endl; x+=dx; y+=dy; }
 
 private:
     int speed;

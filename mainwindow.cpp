@@ -53,7 +53,7 @@ void MainWindow::paintEvent(QPaintEvent *)
     {
         for (int i=1;i<10;i++)
         {
-            substance judge=b.mapForDraw[i][j];
+            substance judge=b.mapForDraw[j][i];
             if (judge.as!=air)
             {
                 name=aM[judge.as];

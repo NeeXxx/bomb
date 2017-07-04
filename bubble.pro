@@ -30,7 +30,9 @@ SOURCES += \
     bomb.cpp \
     board.cpp \
     block.cpp \
-    myMap.cpp
+    myMap.cpp \
+    boardmove.cpp \
+    boardevent.cpp
 
 HEADERS += \
         mainwindow.h \
