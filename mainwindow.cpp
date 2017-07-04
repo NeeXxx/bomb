@@ -71,6 +71,6 @@ void MainWindow::paintEvent(QPaintEvent *)
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
-    if(event->timerId()==timer.timerId())
-        update();
+    //if(event->timerId()==timer.timerId())
+        //update();
 }
