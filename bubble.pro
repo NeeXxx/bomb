@@ -32,7 +32,8 @@ SOURCES += \
     block.cpp \
     myMap.cpp \
     boardmove.cpp \
-    boardevent.cpp
+    boardevent.cpp \
+    dialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,10 +42,12 @@ HEADERS += \
     board.h \
     block.h \
     myMap.h \
-    substances.h
+    substances.h \
+    dialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    dialog.ui
 
 RESOURCES += \
     res.qrc

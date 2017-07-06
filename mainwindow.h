@@ -25,6 +25,8 @@ protected:
     void paintEvent(QPaintEvent*);
     void keyPressEvent(QKeyEvent*);
     void timerEvent(QTimerEvent *event);
+private slots:
+    void on_actionRestart_triggered();
 };
 
 #endif // MAINWINDOW_H

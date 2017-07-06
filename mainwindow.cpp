@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),b(),
@@ -73,4 +74,9 @@ void MainWindow::timerEvent(QTimerEvent *event)
 {
     //if(event->timerId()==timer.timerId())
         //update();
+}
+
+void MainWindow::on_actionRestart_triggered()
+{
+
 }

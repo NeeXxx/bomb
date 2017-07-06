@@ -463,6 +463,14 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>主菜单</string>
+    </property>
+    <addaction name="actionRestart"/>
+    <addaction name="actionInfo"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -473,6 +481,30 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionRestart">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/image/images/restart.png</normaloff>:/image/images/restart.png</iconset>
+   </property>
+   <property name="text">
+    <string>重新开始</string>
+   </property>
+   <property name="toolTip">
+    <string>重新开始游戏</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/image/images/info.png</normaloff>:/image/images/info.png</iconset>
+   </property>
+   <property name="text">
+    <string>关于</string>
+   </property>
+   <property name="toolTip">
+    <string>版权信息</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
